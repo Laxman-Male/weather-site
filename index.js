@@ -7,7 +7,9 @@ let wether_font = document.getElementById("wether_info_font")
 let temp = document.getElementById("temp_heading");
 let wind = document.getElementById("wind")
 let humidity = document.getElementById("humidity");
-let img=document.getElementById("sky_img")
+let img = document.getElementById("sky_img")
+let drop = document.getElementById("drop")
+// let drop=window.getComputedStyle(document.querySelector("right_div") ,':before').getPropertyValue('left')
 
 //  const url="https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=relative_humidity_2m,wind_speed_10m"
 const url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
@@ -35,24 +37,38 @@ function displayWindowSize() {
     hello_btn.style.display = "none"
   }
 };
-const newspaperSpinning = [
+const new_Spinning = [
   { transform: "translateY(50%)" },
   { transform: "translateY(0%)" },
 ];
-const newspaperTiming = {
+const new_Timing = {
   duration: 2000,
   iterations: 1,
 };
 const newspaper = document.querySelector("#hello_btn");
 let inner_forecast = document.getElementById("inner_forecast")
+function days_forecast(){
 hello_btn.addEventListener("click", () => {
-  right_div.animate(newspaperSpinning, newspaperTiming);
+  right_div.animate(new_Spinning, new_Timing);
   right_div.style.display = "block"
   left_div.style.opacity = 0.1
   right_div.style.position = "absolute"
   inner_forecast.style.backgroundColor = "transparent"
   right_div.style.zIndex = -1
+  hello_btn.innerText = "⏬Drop down"
+  droplist()
 });
+}
+days_forecast()
+
+function droplist() {
+  hello_btn.addEventListener("click", () => {
+    right_div.style.display = "none"
+    left_div.style.opacity = 1
+    hello_btn.innerText = "Click to get 5 days forecast"
+    days_forecast()
+  })
+}
 
 async function fun() {
   response_1st = await fetch(url)
@@ -126,7 +142,7 @@ function city_info() {
   console.log("adding 15 ", info_changed)
 
   if (info_changed >= 20 && info_changed <= 30) {
-    if (myWidth <= 331) {
+    if (myWidth <= 420) {
       temp.style.fontSize = "20px"
       wether_describe.style.fontSize = "12px"
       temp.innerText = info_changed + (temp_symbol) + "\n Normal"
@@ -134,8 +150,8 @@ function city_info() {
       humidity.innerText = url_humidity[time_temp] - 30 + "%"
       wether_describe.innerText = "Good Vit-D, temprature"
       // img.innerHTML="<img src="images/cloud.jpg" class=" img-fluid " card-img " alt=" ...">"
-      img.src="images/cloud.jpg"
-      temp.style.color="black"
+      img.src = "images/cloud.jpg"
+      temp.style.color = "black"
     }
     else {
       console.log("normal temprature");
@@ -145,20 +161,20 @@ function city_info() {
       wind.innerText = url_wind[time_temp] + "km/hr"
       humidity.innerText = url_humidity[time_temp] - 30 + "%"
       wether_describe.innerText = "Good Vit-D, temprature"
-      img.src="images/cloud.jpg"
-      temp.style.color="black"
+      img.src = "images/cloud.jpg"
+      temp.style.color = "black"
 
     }
   }
   else if (info_changed >= 30 && info_changed <= 35) {
-    if (myWidth <= 331) {
+    if (myWidth <= 420) {
       temp.style.fontSize = "20px"
       wether_describe.style.fontSize = "12px"
       temp.innerText = info_changed + (temp_symbol) + "\n Level Up  temp"
       wind.innerText = url_wind[time_temp] + "km/hr"
       humidity.innerText = url_humidity[time_temp] - 30 + "%"
       wether_describe.innerText = " More than normal, temprature"
-      img.src="images/sky.jpeg"
+      img.src = "images/sky.jpeg"
     }
     else {
       console.log("having more than normal")
@@ -168,19 +184,19 @@ function city_info() {
       wind.innerText = url_wind[time_temp] + "km/hr"
       humidity.innerText = url_humidity[time_temp] - 30 + "%"
       wether_describe.innerText = " More than normal, temprature"
-      img.src="images/sky.jpeg"
+      img.src = "images/sky.jpeg"
 
     }
   }
   else if (info_changed >= 35) {
-    if (myWidth <= 331) {
+    if (myWidth <= 420) {
       temp.style.fontSize = "20px"
       wether_describe.style.fontSize = "12px"
       temp.innerText = info_changed + (temp_symbol) + "\n High \ntemp"
       wind.innerText = url_wind[time_temp] + "km/hr"
       humidity.innerText = url_humidity[time_temp] - 30 + "%"
       wether_describe.innerText = " Be Hydrated, there is High temp"
-      img.src="images/sky2.jpeg"
+      img.src = "images/sky2.jpeg"
     }
     else {
       console.log("high temparature")
@@ -190,20 +206,20 @@ function city_info() {
       wind.innerText = url_wind[time_temp] + "km/hr"
       humidity.innerText = url_humidity[time_temp] - 30 + "%"
       wether_describe.innerText = " Be Hydrated, there is High temp"
-      img.src="images/sky2.jpeg"
+      img.src = "images/sky2.jpeg"
     }
   }
   else {
-    if (myWidth <= 331) {
+    if (myWidth <= 420) {
       temp.style.fontSize = "20px"
       wether_font.style.fontSize = "15px"
       temp.innerText = info_changed + (temp_symbol) + "\n Low temprature"
       wind.innerText = url_wind[time_temp] + "km/hr"
       humidity.innerText = url_humidity[time_temp] - 30 + "%"
       wether_describe.innerText = " Low temprature"
-      img.src="images/ice.jpg"
-      temp.style.color="black"
-      wether_describe.style.color="black"
+      img.src = "images/ice.jpg"
+      temp.style.color = "black"
+      wether_describe.style.color = "black"
     }
     else {
       console.log("cold weather")
@@ -213,9 +229,9 @@ function city_info() {
       wind.innerText = url_wind[time_temp] + "km/hr"
       humidity.innerText = url_humidity[time_temp] - 30 + "%"
       wether_describe.innerText = " Low temprature"
-      img.src="images/ice.jpg"
-      temp.style.color="black"
-      wether_describe.style.color="black"
+      img.src = "images/ice.jpg"
+      temp.style.color = "black"
+      wether_describe.style.color = "black"
     }
   }
 }
