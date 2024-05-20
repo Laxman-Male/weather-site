@@ -83,11 +83,11 @@ html body {
     animation: move 3s infinite;
 }
 
-/* @keyframes move {
+@keyframes move {
     100% {
         transform: translate(-50%, -50%) rotate(225deg);
     }
-} */
+}
 
 #table_value tr {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
