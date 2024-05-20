@@ -36,6 +36,12 @@ function displayWindowSize() {
     right_div.style.display = "block"
     hello_btn.style.display = "none"
   }
+  // if(myWidth<=350){
+  //   hello_btn.style.fontSize="12px"
+  // }
+  // else{
+  //   hello_btn.style.fontSize="25px"
+  // }
 };
 const new_Spinning = [
   { transform: "translateY(50%)" },
@@ -55,16 +61,21 @@ hello_btn.addEventListener("click", () => {
   right_div.style.position = "absolute"
   inner_forecast.style.backgroundColor = "transparent"
   right_div.style.zIndex = -1
+  
+  
   hello_btn.innerText = "⏬Drop down"
   droplist()
 });
+
 }
 days_forecast()
+
 
 function droplist() {
   hello_btn.addEventListener("click", () => {
     right_div.style.display = "none"
     left_div.style.opacity = 1
+       
     hello_btn.innerText = "Click to get 5 days forecast"
     days_forecast()
   })

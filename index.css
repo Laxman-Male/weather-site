@@ -405,28 +405,30 @@ html body {
     }
 }
 
-#hello_btn::before {
-    content: "";
-    position: absolute;
-    height: 27px;
-    width: 54px;
-    left: 46%;
-    border: 3px solid gray;
-    background-color: black;
-    border-radius: 5px;
-    transform: rotate(45deg);
-    z-index: -1;
-}
-
 #hello_btn {
     border: none;
     border-left: 3px solid black;
     border-right: 3px solid black;
     border-bottom: 1px solid black;
-      font-size: 25px;
-    padding: 0px;
+      font-size: 22px;
+    height: auto;
+    padding: 0px 30px;
     border-bottom-left-radius: 48px;
     border-bottom-right-radius: 48px;
     background: oklch(0.91 0.15 194.77);
     display: none;
+}
+
+#hello_btn::before {
+    content: "";
+    position: absolute;
+    height: 26px;
+    width: 40px;
+    left: 46%;
+    /* bottom: 4%; */
+    border: 3px solid gray;
+    background-color: black;
+    border-radius: 5px;
+    transform: rotate(45deg);
+    z-index: -1;
 }
