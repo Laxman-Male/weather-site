@@ -183,7 +183,7 @@ html body {
         border-radius: 100px;
         background-color: black;
         z-index: -1;
-        animation: move 3s infinite;
+        animation: move 2s infinite;
     }
 
     #card-heading {
@@ -408,9 +408,9 @@ html body {
 #hello_btn::before {
     content: "";
     position: absolute;
-    height: 30px;
-    width: 60px;
-    left: 40%;
+    height: 27px;
+    width: 54px;
+    left: 46%;
     border: 3px solid gray;
     background-color: black;
     border-radius: 5px;
@@ -423,7 +423,7 @@ html body {
     border-left: 3px solid black;
     border-right: 3px solid black;
     border-bottom: 1px solid black;
-    font-size: 1.8rem;
+      font-size: 25px;
     padding: 0px;
     border-bottom-left-radius: 48px;
     border-bottom-right-radius: 48px;
