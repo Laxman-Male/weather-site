@@ -1,0 +1,431 @@
+#left_div {
+    border-radius: 4rem;
+    padding: 2rem 1rem;
+}
+
+html body {
+    background-image: linear-gradient(blue, rgb(54, 54, 245), rgb(43, 74, 248), rgb(19, 104, 223), rgb(31, 146, 252), rgb(21, 197, 246), rgb(113, 220, 255), aqua);
+    background-size: cover;
+    height: auto;
+}
+
+#complete {
+    align-items: center;
+}
+
+#main {
+    border: 1px solid black;
+    box-shadow: 1px 8px 20px black;
+    border-radius: 4rem;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.form {
+    display: flex;
+    justify-content: space-around;
+}
+
+#search i {
+    align-self: center;
+    width: 30px;
+}
+
+#select:hover {
+    cursor: pointer;
+}
+
+#search_button {
+    height: 48px;
+}
+
+.card-title {
+    font-size: 4rem;
+    padding: 11px 50px;
+}
+
+#sky_img {
+    border-radius: 105px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 8px black;
+}
+
+#display-card {
+    border-radius: 106px;
+    width: 379px;
+    height: 348px;
+}
+
+#display-wether {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 360px;
+    width: 390px;
+    border-radius: 111px;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 99;
+}
+
+#display-wether::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    height: 513px;
+    width: 292px;
+    background-color: black;
+    z-index: -1;
+    animation: move 3s infinite;
+}
+
+/* @keyframes move {
+    100% {
+        transform: translate(-50%, -50%) rotate(225deg);
+    }
+} */
+
+#table_value tr {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.1rem;
+}
+
+
+#right_div {
+    border-radius: 4rem;
+    padding: 20px;
+}
+
+#table_value ul {
+    font-size: 18px;
+    border-top-style: groove;
+    border-bottom-style: groove;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 165px;
+    margin: 8px;
+    border-radius: 20px;
+    box-shadow: 2px 3px 15px rgb(12, 103, 248);
+}
+
+#information {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80%;
+    margin-top: 15px;
+}
+
+#wind {
+    font-size: 18px;
+}
+
+#humidity {
+    font-size: 18px;
+}
+
+#inner_forecast {
+    border-radius: 40px;
+}
+
+#inner_forecast a {
+    padding: 15px;
+    background-color: transparent;
+    color: white;
+}
+
+#inner_forecast a:hover {
+    background-color: rgb(9, 83, 242);
+    color: black;
+}
+
+@media (max-width: 1000px) {
+    #main {
+        border: 2px solid;
+    }
+
+    #sky_img {
+        border-radius: 105px;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0px 0px 8px black;
+    }
+
+    #display-card {
+        border-radius: 106px;
+        width: 310px;
+        height: 316px;
+    }
+
+    #display-wether {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 360px;
+        width: 390px;
+        border-radius: 111px;
+        margin-top: 10px;
+        position: relative;
+        overflow: hidden;
+        z-index: 99;
+    }
+
+    #display-wether::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        height: 293px;
+        width: 313px;
+        border-radius: 100px;
+        background-color: black;
+        z-index: -1;
+        animation: move 3s infinite;
+    }
+
+    #card-heading {
+        font-size: 3.1rem;
+        padding: 13px 20px;
+    }
+
+    #right_div {
+        padding: 1rem 2rem;
+    }
+
+    .card-title {
+        font-size: 2rem;
+        padding: 6px 30px;
+    }
+}
+
+@media (max-width:780px) {
+    #display-wether {
+        z-index: -1;
+    }
+
+    #inner_forecast a {
+        color: black;
+    }
+
+    #sky_img {
+        filter: contrast(0.8);
+    }
+
+    #information {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #wind_info {
+        font-size: 25px;
+    }
+
+    #humi_info {
+        font-size: 25px;
+    }
+
+    #wind {
+        font-size: 25px;
+    }
+
+    #humidity {
+        font-size: 25px;
+    }
+}
+
+@media (min-width:580px)and (max-width:766px) {
+    #display-wether {
+        height: 375px;
+        width: 436px;
+    }
+
+    #information {
+        margin-left: 0px;
+    }
+
+    #display-card {
+        width: 344px;
+        height: 333px;
+    }
+
+    #display-wether::after {
+        height: 293px;
+        width: 350px;
+    }
+
+    #table_value ul {
+        width: 295px;
+    }
+
+    #wind_info {
+        display: flex;
+        justify-content: center;
+    }
+
+    #humi_info {
+        display: flex;
+        justify-content: center;
+    }
+
+    #wind {
+        display: flex;
+        justify-content: center;
+    }
+
+    #humidity {
+        display: flex;
+        justify-content: center;
+    }
+
+    #right_div {
+        width: 100%;
+    }
+
+    #inner_forecast a {
+        padding: 15px;
+        font-size: 20px;
+        background-color: transparent;
+        color: black;
+    }
+
+    #inner_forecast a:hover {
+        color: white;
+    }
+}
+
+@media (min-width:420px)and (max-width:579px) {
+    #display-wether {
+        width: 80vw;
+    }
+
+    #information {
+        margin-left: 26px;
+    }
+
+    #right_div {
+        width: 100%;
+    }
+}
+
+@media (min-width:200px)and (max-width:419px) {
+    #display-card {
+        height: 267px;
+        width: 258px;
+    }
+
+    #display-wether::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        height: 280px;
+        width: 265px;
+    }
+
+    #right_div {
+        width: 100%;
+    }
+}
+
+@media (max-width:419px) {
+    #display-wether {
+        width: 284px;
+    }
+
+    #display-wether::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        height: 270px;
+        width: 241px;
+
+    }
+}
+
+@media (max-width:329px) {
+    #display-wether::after {
+        height: 240px;
+        width: 199px;
+    }
+
+    #display-wether {
+        width: 245px;
+        height: 233px;
+    }
+
+    #display-card {
+        width: 222px;
+        height: 224px;
+    }
+
+    #information {
+        margin-left: 0px;
+    }
+
+    .card-title {
+        font-size: 1.6rem;
+        padding: 0px 48px;
+    }
+}
+
+@media (max-width:288px) {
+    #display-wether::after {
+        height: 240px;
+        width: 199px;
+    }
+
+    #display-wether {
+        width: 204px;
+        height: 222px;
+    }
+
+    #display-card {
+        width: 203px;
+        height: 213px;
+    }
+
+    #information {
+        margin-left: 0px;
+    }
+
+    .card-title {
+        font-size: 1.6rem;
+        padding: 0px 48px;
+    }
+
+    #inner_forecast a {
+        font-size: 0.9rem;
+    }
+}
+
+#hello_btn::before {
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 60px;
+    border: 3px solid gray;
+    background-color: black;
+    border-radius: 5px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+#hello_btn {
+    border: none;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-bottom: 1px solid black;
+    font-size: 2rem;
+    padding: 0px;
+    border-bottom-left-radius: 48px;
+    border-bottom-right-radius: 48px;
+    background: oklch(0.91 0.15 194.77);
+    display: none;
+}
