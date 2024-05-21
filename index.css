@@ -211,6 +211,10 @@ html body {
     }
 
     #inner_forecast a {
+        color: white;
+    }
+    #inner_forecast a:hover {
+        background-color: rgb(9, 83, 242);
         color: black;
     }
 
@@ -291,12 +295,13 @@ html body {
     #inner_forecast a {
         padding: 15px;
         font-size: 20px;
-        background-color: transparent;
-        color: black;
-    }
-
-    #inner_forecast a:hover {
+        /* background-color: transparent; */
         color: white;
+    }
+    
+    #inner_forecast a:hover {
+        background-color: blue;
+        color: black;
     }
 
 }
@@ -305,7 +310,7 @@ html body {
     #display-wether {
         width: 80vw;
     }
-
+    
     #information {
         margin-left: 26px;
     }
@@ -409,7 +414,7 @@ html body {
     }
 }
 
-#hello_btn {
+#days_forecast {
     border: none;
     border-left: 3px solid black;
     border-right: 3px solid black;
@@ -423,7 +428,7 @@ html body {
     display: none;
 }
 
-#hello_btn::before {
+#days_forecast::before {
     content: "";
     position: absolute;
     height: 26px;

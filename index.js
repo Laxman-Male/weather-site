@@ -1,10 +1,12 @@
 let select = document.getElementById("select_city");
 let right_div = document.getElementById("right_div");
 let search_btn = document.getElementById("search_button");
-let hello_btn = document.getElementById("hello_btn")
+let hello_btn = document.getElementById("days_forecast")
 let wether_describe = document.getElementById("wether_describe")
 let wether_font = document.getElementById("wether_info_font")
 let temp = document.getElementById("temp_heading");
+let wind_info=document.getElementById("information")
+let forecast_info=document.querySelectorAll("#inner_forecast a")
 let wind = document.getElementById("wind")
 let humidity = document.getElementById("humidity");
 let img = document.getElementById("sky_img")
@@ -36,12 +38,6 @@ function displayWindowSize() {
     right_div.style.display = "block"
     hello_btn.style.display = "none"
   }
-  // if(myWidth<=350){
-  //   hello_btn.style.fontSize="12px"
-  // }
-  // else{
-  //   hello_btn.style.fontSize="25px"
-  // }
 };
 const new_Spinning = [
   { transform: "translateY(50%)" },
@@ -57,11 +53,13 @@ function days_forecast(){
 hello_btn.addEventListener("click", () => {
   right_div.animate(new_Spinning, new_Timing);
   right_div.style.display = "block"
-  left_div.style.opacity = 0.1
+  // left_div.style.opacity = 0.1
   right_div.style.position = "absolute"
-  inner_forecast.style.backgroundColor = "transparent"
+  // inner_forecast.style.backgroundColor = "rgb(34, 88, 236)"
+  inner_forecast.style.backgroundImage="linear-gradient(blue, rgb(54, 54, 245),rgb(54, 54, 245), rgb(43, 74, 248), rgb(19, 104, 223), rgb(19, 104, 223),rgb(31, 146, 252), rgb(21, 197, 246))"
+  // forecast_info.style.color="white"
   right_div.style.zIndex = -1
-  
+  wind_info.style.zIndex=-1
   
   hello_btn.innerText = "⏬Drop down"
   droplist()
@@ -81,25 +79,17 @@ function droplist() {
   })
 }
 
-async function fun() {
+async function fetching_api() {
   response_1st = await fetch(url)
   response_2nd = await response_1st.json()
-  console.log(response_1st)
-  console.log("data2..", response_2nd)
-  url_humidity = response_2nd.hourly.relative_humidity_2m
-  console.log("humidity", response_2nd.hourly.relative_humidity_2m)
-  url_wind = response_2nd.hourly.wind_speed_10m
-  console.log("wind", response_2nd.hourly.wind_speed_10m)
-  url_time = response_2nd.hourly.time
-  console.log("time", response_2nd.hourly.time)
-  url_temp = response_2nd.hourly.
+   url_humidity = response_2nd.hourly.relative_humidity_2m
+   url_wind = response_2nd.hourly.wind_speed_10m
+   url_time = response_2nd.hourly.time
+   url_temp = response_2nd.hourly.
     temperature_2m
-  console.log("temprature", response_2nd.hourly.
-    temperature_2m)
-  temp_symbol = response_2nd.hourly_units.temperature_2m
-  console.log(temp_symbol)
-}
-fun()
+   temp_symbol = response_2nd.hourly_units.temperature_2m
+ }
+fetching_api()
 function city_info() {
   let random_num = Math.floor(Math.random() * 50)
   let temp_by_time = new Date()
@@ -144,14 +134,11 @@ function city_info() {
     time_temp = time_temp + 3
   }
 
-  console.log("api temp", url_temp[time_temp])
-  console.log("random number", random_num)
-  info_changed = temp.innerText = url_temp[time_temp] + 15
+   info_changed = temp.innerText = url_temp[time_temp] + 15
   if (select.value == "Kashmir") {
     info_changed = temp.innerText = url_temp[time_temp] - 8
   }
-  console.log("adding 15 ", info_changed)
-
+ 
   if (info_changed >= 20 && info_changed <= 30) {
     if (myWidth <= 420) {
       temp.style.fontSize = "20px"
@@ -160,13 +147,11 @@ function city_info() {
       wind.innerText = url_wind[time_temp] + "km/hr"
       humidity.innerText = url_humidity[time_temp] - 30 + "%"
       wether_describe.innerText = "Good Vit-D, temprature"
-      // img.innerHTML="<img src="images/cloud.jpg" class=" img-fluid " card-img " alt=" ...">"
-      img.src = "images/cloud.jpg"
+       img.src = "images/cloud.jpg"
       temp.style.color = "black"
     }
     else {
-      console.log("normal temprature");
-      temp.style.fontSize = "40px"
+       temp.style.fontSize = "40px"
       wether_describe.style.fontSize = "16px"
       temp.innerText = info_changed + (temp_symbol) + "\n Normal"
       wind.innerText = url_wind[time_temp] + "km/hr"
@@ -188,8 +173,7 @@ function city_info() {
       img.src = "images/sky.jpeg"
     }
     else {
-      console.log("having more than normal")
-      temp.style.fontSize = "40px"
+       temp.style.fontSize = "40px"
       wether_describe.style.fontSize = "16px"
       temp.innerText = info_changed + (temp_symbol) + "\n Level Up  temprature"
       wind.innerText = url_wind[time_temp] + "km/hr"
@@ -210,8 +194,7 @@ function city_info() {
       img.src = "images/sky2.jpeg"
     }
     else {
-      console.log("high temparature")
-      temp.style.fontSize = "40px"
+       temp.style.fontSize = "40px"
       wether_describe.style.fontSize = "16px"
       temp.innerText = info_changed + (temp_symbol) + "\n High \n temprature"
       wind.innerText = url_wind[time_temp] + "km/hr"
@@ -233,8 +216,7 @@ function city_info() {
       wether_describe.style.color = "black"
     }
     else {
-      console.log("cold weather")
-      temp.style.fontSize = "40px"
+       temp.style.fontSize = "40px"
       wether_describe.style.fontSize = "16px"
       temp.innerText = info_changed + (temp_symbol) + "\n Low temprature"
       wind.innerText = url_wind[time_temp] + "km/hr"
@@ -248,46 +230,46 @@ function city_info() {
 }
 search_btn.addEventListener("click", () => {
   switch (select.value) {
-    case 'Pune': console.log("pune")
+    case 'Pune':  
       city_info();
       break;
-    case 'Bengaluru': console.log("Bengaluru")
+    case 'Bengaluru':  
       city_info()
       break;
-    case 'Delhi': console.log("Delhi")
+    case 'Delhi':  
       city_info()
       break;
-    case 'Mumbai': console.log("Mumbai")
+    case 'Mumbai':  
       city_info()
       break;
-    case 'Bhopal': console.log("Bhopal")
+    case 'Bhopal':  
       city_info()
       break;
-    case 'Punjab': console.log("Punjab")
+    case 'Punjab':  
       city_info()
       break;
-    case 'Kashmir': console.log("Kashmir")
+    case 'Kashmir':  
       city_info()
       break;
-    case 'Kerla': console.log("Kerla")
+    case 'Kerla':  
       city_info()
       break;
-    case 'Solapur': console.log("Solapur")
+    case 'Solapur':  
       city_info()
       break;
-    case 'Kolhapur': console.log("Kolhapur")
+    case 'Kolhapur':  
       city_info()
       break;
-    case 'Satara': console.log("Satara")
+    case 'Satara':  
       city_info()
       break;
-    case 'Raigad': console.log("Raigad")
+    case 'Raigad':  
       city_info()
       break;
-    case 'Nagar': console.log("Nagar")
+    case 'Nagar':  
       city_info()
       break;
-    default: console.log("not valid city");
+    default:  
       break;
   }
 })
