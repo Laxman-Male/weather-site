@@ -1,4 +1,12 @@
-let select = document.getElementById("select_city");
+ let body=document.querySelector("body")
+   let slider=document.getElementById("slider")
+let complete=document.getElementById("complete")
+let animate=document.getElementById("display-wether")
+let main_outer=document.getElementById("main")
+ let search_row=document.getElementById("search")
+ let default_mode=document.getElementById("default_switch")
+let color_mode=document.getElementById("color_mode")
+ let select = document.getElementById("select_city");
 let right_div = document.getElementById("right_div");
 let search_btn = document.getElementById("search_button");
 let hello_btn = document.getElementById("days_forecast")
@@ -6,14 +14,19 @@ let wether_describe = document.getElementById("wether_describe")
 let wether_font = document.getElementById("wether_info_font")
 let temp = document.getElementById("temp_heading");
 let wind_info=document.getElementById("information")
+let outer_forecast=document.getElementById("inner_forecast")
 let forecast_info=document.querySelectorAll("#inner_forecast a")
-let wind = document.getElementById("wind")
+ let wind = document.getElementById("wind")
 let humidity = document.getElementById("humidity");
 let img = document.getElementById("sky_img")
 let drop = document.getElementById("drop")
-// let drop=window.getComputedStyle(document.querySelector("right_div") ,':before').getPropertyValue('left')
+let mode_btn=document.getElementById("mode_btn");
+const newspaper = document.querySelector("#hello_btn");
+ 
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
 
-//  const url="https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=relative_humidity_2m,wind_speed_10m"
+ //  const url="https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=relative_humidity_2m,wind_speed_10m"
 const url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
 let response_1st
 let response_2nd
@@ -47,34 +60,26 @@ const new_Timing = {
   duration: 2000,
   iterations: 1,
 };
-const newspaper = document.querySelector("#hello_btn");
-let inner_forecast = document.getElementById("inner_forecast")
 function days_forecast(){
 hello_btn.addEventListener("click", () => {
   right_div.animate(new_Spinning, new_Timing);
   right_div.style.display = "block"
-  // left_div.style.opacity = 0.1
-  right_div.style.position = "absolute"
-  // inner_forecast.style.backgroundColor = "rgb(34, 88, 236)"
-  inner_forecast.style.backgroundImage="linear-gradient(blue, rgb(54, 54, 245), rgb(43, 74, 248), rgb(19, 104, 223), rgb(31, 146, 252), rgb(21, 197, 246))"
-  // forecast_info.style.color="white"
-  right_div.style.zIndex = -1
+   right_div.style.position = "absolute"
+   inner_forecast.style.backgroundImage="linear-gradient(blue, rgb(54, 54, 245), rgb(43, 74, 248), rgb(19, 104, 223), rgb(31, 146, 252), rgb(21, 197, 246))"
+   right_div.style.zIndex = -1
   wind_info.style.zIndex=-1
-  
-  hello_btn.innerText = "⏬Drop down"
+   hello_btn.innerText = "⏬Drop down"
   droplist()
 });
-
-}
+ }
 days_forecast()
-
-
+ 
 function droplist() {
   hello_btn.addEventListener("click", () => {
     right_div.style.display = "none"
-    left_div.style.opacity = 1
-       
+    // left_div.style.opacity = 1
     hello_btn.innerText = "Click to get 5 days forecast"
+    search_row.style.zIndex= -2
     days_forecast()
   })
 }
@@ -273,85 +278,24 @@ search_btn.addEventListener("click", () => {
       break;
   }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+  let line_1=document.getElementById("line_1st")
+  let line_2=document.getElementById("line_2nd")
+  let line_3=document.getElementById("line_3rd")
+  let line_4=document.getElementById("line_4th")
+  let line_5=document.getElementById("line_5th")
+
+  color_mode.addEventListener("click", ()=>{
+     body.style.backgroundImage="url('images/dark_mode.png')"
+        line_1.style.backgroundImage="url('images/dark_mode.png')"
+      line_2.style.backgroundImage="url('images/dark_mode.png')"
+      line_3.style.backgroundImage="url('images/dark_mode.png')"
+      line_4.style.backgroundImage="url('images/dark_mode.png')"
+      line_5.style.backgroundImage="url('images/dark_mode.png')"
+       console.log("hello")
+  })
+ default_mode.addEventListener("click",()=>{
+  window.location.reload()
+ }) 
+ 
+ 

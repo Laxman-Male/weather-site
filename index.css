@@ -6,8 +6,7 @@
     align-items: center;
     justify-content: center;
 }
-
-html body {
+ body {
     background-image: linear-gradient(blue, rgb(54, 54, 245), rgb(43, 74, 248), rgb(19, 104, 223), rgb(31, 146, 252), rgb(21, 197, 246), rgb(113, 220, 255), aqua);
     background-size: cover;
     height: auto;
@@ -15,9 +14,12 @@ html body {
 
 #complete {
     align-items: center;
+    /* border: 2px solid red; */
+    /* background-color: black; */
 }
 
 #main {
+    /* background-color: red; */
     border: 1px solid black;
     box-shadow: 1px 8px 20px black;
     border-radius: 4rem;
@@ -28,6 +30,156 @@ html body {
 .form {
     display: flex;
     justify-content: space-around;
+}
+
+#setting{
+    display: flex;
+    float: left;
+    justify-content: flex-start;
+    width: auto;
+    /* margin-top: 1rem; */
+    padding: 0px 2px;
+}
+#setting_btn{
+    padding: 5px 5px;
+    margin-bottom: 12px;
+}
+
+
+
+
+
+
+#color_mode{
+    /* border: 2px solid red; */
+    display: flex;
+    /* gap: 0.8rem; */
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+     border-radius: 5px;
+    background-color: #6c757d;
+    height: 40px;
+    width: 107px;
+    cursor: pointer;
+
+}
+#default_switch{
+    /* border: 1px solid #6c757d; */
+    margin-top: 10px;
+    padding: 7px;
+    border-radius: 7px;
+    background-color: #6c757d;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    width: 134px;
+}
+
+  #setting_footer{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.3rem;
+    height: 2rem;
+    gap: 0.8rem;
+    /* cursor: pointer; */
+  }
+#logo_1{
+    cursor: pointer;
+    border: 1px solid rgb(187, 183, 183);
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+ }
+#logo_2{
+    cursor: pointer;
+    border: 1px solid rgb(187, 183, 183);
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+
+ }
+#logo_3{
+    cursor: pointer;
+    border: 1px solid rgb(187, 183, 183);
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+
+ }
+#logo_4{
+    cursor: pointer; 
+    border: 1px solid rgb(187, 183, 183);
+    display: flex;
+    justify-content: center;   
+    border-radius: 5px;
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#search{
+    gap: 10px;
+    display: flex;
+    align-items: center;
+     justify-content: center;
+}
+#setting i{
+    font-size: 20px;
 }
 
 #search i {
@@ -83,7 +235,7 @@ html body {
     height: 513px;
     width: 292px;
     background-color: black;
-    z-index: -1;
+     z-index: -1;
     animation: move 3s infinite;
 }
 
@@ -108,7 +260,7 @@ html body {
     border-top-style: groove;
     border-bottom-style: groove;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 165px;
+    width: 150px;
     margin: 8px;
     border-radius: 20px;
     box-shadow: 2px 3px 15px rgb(12, 103, 248);
@@ -212,6 +364,7 @@ html body {
 
     #inner_forecast a {
         color: white;
+        /* color: black; */
     }
     #inner_forecast a:hover {
         background-color: rgb(9, 83, 242);
@@ -289,7 +442,7 @@ html body {
     }
 
     #right_div {
-        width: 100%;
+        width: 77%;
     }
 
     #inner_forecast a {
@@ -414,6 +567,35 @@ html body {
     }
 }
 
+@media (max-width:550px){
+    #offcanvasExample{
+         width: 58%;
+    }
+    #setting_footer{
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    #contact_us{
+        margin-bottom: 0px;
+    }
+}
+@media (max-width:300px){
+    #offcanvasExample{
+        border: 2px solid red;
+        width: 75%;
+    }
+    #setting_footer{
+        gap: 0.5rem;
+        font-size: 0.7rem;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    #contact_us{
+        margin-bottom: 0px;
+    }
+}
 #days_forecast {
     border: none;
     border-left: 3px solid black;
